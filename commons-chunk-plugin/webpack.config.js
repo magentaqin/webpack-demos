@@ -19,18 +19,45 @@ const path = require('path')
 //   ]
 // }
 
+/**
+ * demo2 对应的webpack配置：
+ * 多入口文件情况下，引用多次的文件会被抽到公共文件里
+ */
+// const config = {
+//   entry:  {
+//     index: './demo2/index',
+//     index2: './demo2/index2'
+//   },
+//   output: {
+//     path: path.resolve(__dirname, './dist/demo2'),
+//     filename: '[name].js'
+//   },
+//   plugins: [
+//     new webpack.optimize.CommonsChunkPlugin({
+//       name: 'common',
+//       minChunks: 2
+//     })
+//   ]
+// }
+
+/**
+ * demo3 对应的 webpack配置：
+ *
+ */
 const config = {
   entry:  {
-    index: './demo2/index',
-    index2: './demo2/index'
+    index: './demo3/index',
+    index2: './demo3/index2',
+    lib1: ['react'],
+    lib2: ['echarts']
   },
   output: {
-    path: path.resolve(__dirname, './dist/demo2'),
+    path: path.resolve(__dirname, './dist/demo3'),
     filename: '[name].js'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
+      name: ['lib1', 'lib2', 'common', 'common2', 'common3'],
       minChunks: 2
     })
   ]

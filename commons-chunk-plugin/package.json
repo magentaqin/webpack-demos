@@ -10,5 +10,9 @@
     "webpack": "^3.11.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "echarts": "^4.9.0",
+    "react": "^17.0.1"
+  }
 }
