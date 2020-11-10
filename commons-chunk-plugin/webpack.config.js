@@ -57,7 +57,7 @@ const config = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['lib1', 'lib2', 'common', 'common2', 'common3'],
+      name: ['common','lib1', 'lib2'],
       minChunks: 2
     })
   ]
