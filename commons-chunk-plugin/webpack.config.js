@@ -42,7 +42,7 @@ const path = require('path')
 
 /**
  * demo3 对应的 webpack配置：
- *
+ * 公共业务代码和第三方库代码分开打包
  */
 const config = {
   entry:  {
@@ -59,6 +59,30 @@ const config = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['common','lib1', 'lib2'],
       minChunks: 2
+    })
+  ]
+}
+
+/**
+ * demo4 对应的 webpack配置：
+ * CommonsChunkPlugin的minChunks字段
+ */
+const config = {
+  entry:  {
+    index: './demo4/index',
+    index2: './demo4/index2',
+    lib1: ['react'],
+    lib2: ['echarts']
+  },
+  output: {
+    path: path.resolve(__dirname, './dist/demo4'),
+    filename: '[name].js'
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['common','lib1', 'lib2'],
+      minChunks: Infinity
+      // minChunks: 2
     })
   ]
 }
